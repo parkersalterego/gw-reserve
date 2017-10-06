@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 
+
 interface NavigationItems {
   name: string;
   url: string;
@@ -19,21 +20,21 @@ export class NavComponent {
   constructor() {
     this.items = [
       {
-        name: 'just do it',
-        url: 'home/9001'
+        name: 'Home',
+        url: '/home'
       },
       {
-        name: 'Home',
-        url: 'home'
+        name: 'Rooms',
+        url: '/rooms'
       },
       {
         name: 'About',
-        url: 'about'
+        url: '/about'
 
       },
       {
         name: 'Contact',
-        url: 'contact'
+        url: '/contact'
 
       }
     ];

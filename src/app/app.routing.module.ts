@@ -5,11 +5,12 @@ import { NavComponent} from './navigation.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
 import { AboutComponent } from './about.component';
+import { RoomsComponent } from './rooms.component';
 
  const routes: Routes = [
    {
-     path: 'home/:id',
-     component: HomeComponent
+     path: 'rooms',
+     component: RoomsComponent
    },
   {
     path: 'home',
@@ -25,7 +26,7 @@ import { AboutComponent } from './about.component';
   }
 ];
 
-export const routedComponents = [ HomeComponent, AboutComponent ];
+export const routedComponents = [ HomeComponent, AboutComponent, RoomsComponent ];
 
 @NgModule({
   imports: [

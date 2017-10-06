@@ -3,7 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule, routedComponents } from './app.routing.module';
 
 import { NavComponent} from './navigation.component';
+import { LogInComponent } from './login.component';
 import { AppComponent } from './app.component';
+
+import { LoginService } from './services/login.service';
 
 @NgModule({
     imports: [
@@ -12,8 +15,12 @@ import { AppComponent } from './app.component';
     ],
     declarations: [
         NavComponent,
+        LogInComponent,
         AppComponent,
         routedComponents
+      ],
+    providers: [
+        LoginService
       ],
       bootstrap: [
           AppComponent

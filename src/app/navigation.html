@@ -5,7 +5,10 @@
 </div>
 
 <div class="nav-bar" id="navBar">
-  <div class="nav-list-item display-inline nav-spacer" *ngFor="let listItem of items" [routerLink]="listItem.url">{{listItem.name}}</div>
+  <div>
+      <div class="nav-list-item display-inline nav-spacer" *ngFor="let listItem of items" [routerLink]="listItem.url">{{listItem.name}}</div>
+  </div>
+  <gw-login></gw-login>
 </div>
 <!-- <h1>routed content will show here</h1> -->
 
