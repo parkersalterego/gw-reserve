@@ -24,7 +24,7 @@ export class NavComponent {
         url: '/home'
       },
       {
-        name: 'Rooms',
+        name: 'Room 1',
         url: '/rooms'
       },
       {

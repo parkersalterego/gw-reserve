@@ -7,6 +7,7 @@ import { LogInComponent } from './login.component';
 import { AppComponent } from './app.component';
 
 import { LoginService } from './services/login.service';
+import { ActivationService} from './services/activation.service';
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import { LoginService } from './services/login.service';
         routedComponents
       ],
     providers: [
+        ActivationService,
         LoginService
       ],
       bootstrap: [
