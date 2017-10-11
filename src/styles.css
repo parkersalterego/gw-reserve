@@ -1,3 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css?family=Germania+One');
+@font-face {
+  font-family: 'quantify';
+  src: url('./assets/fonts/Quantify Bold.ttf');
+}
