@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
-import { ICanDeactivate } from './services/can-deactivate.guard.service';
+import { ICanDeactivate } from '../services/can-deactivate.guard.service';
 
 @Component({
     selector: 'gw-rooms',
-    templateUrl: 'rooms.html',
-    styleUrls: ['rooms.css']
+    templateUrl: '../html/rooms.html',
+    styleUrls: ['../css/rooms.css']
 })
 
 export class RoomsComponent implements ICanDeactivate {

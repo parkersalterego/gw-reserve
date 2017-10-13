@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'gw-about',
-    templateUrl: 'about.html',
-    styleUrls: ['about.css']
+    templateUrl: '../html/about.html',
+    styleUrls: ['../css/about.css']
 })
 export class AboutComponent {}

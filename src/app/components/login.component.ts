@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { LoginService } from './services/login.service';
+import { LoginService } from '../services/login.service';
 
 @Component({
     selector: 'gw-login',
-    templateUrl: 'login.html',
-    styleUrls: ['login.css']
+    templateUrl: '../html/login.html',
+    styleUrls: ['../css/login.css']
 })
 
 export class LogInComponent {
