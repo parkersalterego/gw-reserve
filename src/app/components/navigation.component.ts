@@ -35,8 +35,8 @@ export class NavComponent {
         url: '/home'
       },
       {
-        name: 'Room 1',
-        url: '/rooms'
+        name: 'Rooms',
+        url: '/rooms/1'
       },
       {
         name: 'About',

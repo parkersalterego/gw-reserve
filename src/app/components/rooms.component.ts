@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { ICanDeactivate } from '../services/can-deactivate.guard.service';
 
@@ -8,21 +9,16 @@ import { ICanDeactivate } from '../services/can-deactivate.guard.service';
     styleUrls: ['../css/rooms.css']
 })
 
-export class RoomsComponent implements ICanDeactivate {
+export class RoomsComponent implements OnInit {
   public canThisDeactivate: boolean;
 
-  constructor() {
-    this.canThisDeactivate = true;
+  public roomId;
 
+  constructor(private _activatedRoute: ActivatedRoute) {
   }
-
-  toggleCanDeactivate() {
-    this.canThisDeactivate = !this.canThisDeactivate;
-
-  }
-
-  canDeactivate() {
-    return this.canThisDeactivate;
-
+  public ngOnInit() {
+    this._activatedRoute.paramMap.subscribe(route => {
+      this.roomId = route.get('id');
+    });
   }
 }

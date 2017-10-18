@@ -1,9 +1,32 @@
 
-<form>
-  <div>
-    <input type="text">
-  </div>
-  <div>
-    <input type="text">
-  </div>
+<h1>Make a reservation for {{roomId}}</h1>
+
+<form #roomForm="ngForm" (ngSubmit)="onSubmit()"  novalidate>
+
+  <label for="name">Name</label>
+
+  <input type="text" name="name" class="form-control" #name="ngModel"  ngModel required>
+
+  <label for="email">Email</label>
+
+  <input type="text" name="email" class="form-control" #email="ngModel" ngModel required>
+
+  <label for="reason">reason</label>
+
+  <select name="reason" class="form-control" #reason="ngModel" ngModel required>
+    <option *ngFor="let reason of reasons" value="reason">{{reason}}</option>
+  </select>
+
+  <label for="start-time">Start Time</label>
+
+  <input type="datetime-local" name="startTime" class="form-control" #startTime="ngModel" ngModel required>
+
+  <label for="end-time">End Time</label>
+
+  <input type="datetime-local" name="endTime" class="form-control" #endTime="ngModel" ngModel required>
+
+  {{roomForm.value | json}}
+
+  <button type="submit">Submit</button>
+
 </form>

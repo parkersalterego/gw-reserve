@@ -12,7 +12,7 @@ import { CanDeactivateService } from './services/can-deactivate.guard.service';
 
  const routes: Routes = [
    {
-     path: 'rooms',
+     path: 'rooms/:id',
      component: RoomsComponent,
      canActivate: [ LoginGuardService ],
      canDeactivate: [ CanDeactivateService ]
