@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home.component';
 import { AboutComponent } from './components/about.component';
 import { RoomsComponent } from './components/rooms.component';
+import { ReservationListComponent } from './components/reservation-list.component';
 
 import { LoginGuardService} from './services/login.guard.service';
 import { CanDeactivateService } from './services/can-deactivate.guard.service';
@@ -26,12 +27,16 @@ import { CanDeactivateService } from './services/can-deactivate.guard.service';
     component: AboutComponent
   },
   {
+    path: 'reservations',
+    component: ReservationListComponent
+  },
+  {
     path: '**' ,
     component: HomeComponent
   }
 ];
 
-export const routedComponents = [ HomeComponent, AboutComponent, RoomsComponent ];
+export const routedComponents = [ HomeComponent, AboutComponent, RoomsComponent, ReservationListComponent ];
 
 @NgModule({
   imports: [

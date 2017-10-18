@@ -16,7 +16,7 @@ import { ReservationListComponent } from './components/reservation-list.componen
 
 import { LoginService } from './services/login.service';
 import { LoginGuardService } from './services/login.guard.service';
-
+import { FormListService } from './services/form.list.service';
 @NgModule({
     imports: [
         BrowserModule,
@@ -29,12 +29,12 @@ import { LoginGuardService } from './services/login.guard.service';
         LogInComponent,
         AppComponent,
         routedComponents,
-        RoomFormComponent,
-        ReservationListComponent
+        RoomFormComponent
       ],
     providers: [
         LoginGuardService,
-        LoginService
+        LoginService,
+        FormListService
       ],
       bootstrap: [
           AppComponent

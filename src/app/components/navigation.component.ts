@@ -47,6 +47,10 @@ export class NavComponent {
         name: 'Contact',
         url: '/contact'
 
+      },
+      {
+        name: 'Reservations',
+        url: '/reservations'
       }
     ];
   }

@@ -1,6 +1,7 @@
 import { Component, ViewChild, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+import { FormListService } from '../services/form.list.service';
 @Component ({
   selector: 'gw-room-form',
   templateUrl: '../html/room.form.html',
@@ -8,6 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 
 export class RoomFormComponent {
+  constructor(private formService: FormListService) {}
   @ViewChild('roomForm')
   private roomForm: NgForm;
 
@@ -17,6 +19,9 @@ export class RoomFormComponent {
   public reasons = ['Business Meeting', 'Cleint Meeting'];
 
   onSubmit() {
-    console.log(this.roomForm.value);
+    this.formService.roomsReserved.push(this.roomForm.value);
+    this.formService.formData = this.roomForm.value;
   }
 }
+
+
