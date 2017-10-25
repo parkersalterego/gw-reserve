@@ -13,11 +13,15 @@ export class LoginGuardService implements CanActivate {
   }
 
    canActivate() {
-     const user = this._loginService.getLoggedInUser();
-     if (user === null ) {
-       this._router.navigate(['home'], {fragment: 'warning'});
-       return false;
-     }
-      return true;
-   }
+     return this._loginService.getLoggedInUser().map(
+       loggedInUser => {
+         console.log('test');
+         if (loggedInUser) return true;
+
+         this._router.navigate(['home'], {fragment: 'warning'});
+
+         return false;
+       }
+     );
+    }
  }

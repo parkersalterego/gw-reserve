@@ -36,27 +36,12 @@ export class NavComponent {
       },
       {
         name: 'Rooms',
-        url: '/rooms/1'
-      },
-      {
-        name: 'About',
-        url: '/about'
-
-      },
-      {
-        name: 'Contact',
-        url: '/contact'
-
+        url: '/rooms/:id'
       },
       {
         name: 'Reservations',
-        url: '/reservations'
+        url: '/list'
       }
     ];
   }
 }
-
-
-
-
-

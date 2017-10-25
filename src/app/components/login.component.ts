@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'gw-login',
@@ -8,19 +9,33 @@ import { LoginService } from '../services/login.service';
 })
 
 export class LogInComponent {
+  public loggedInUser;
 
-constructor(private loginService: LoginService) { }
+constructor(private _loginService: LoginService, private _router: Router) {
+  this._loginService.getLoggedInUser ()
+    .map(user => {
+      if(!user) return;
+
+      return {
+        displayName: user.displayName,
+        pictureUrl: user.photoURL
+      };
+    })
+    .subscribe(user => {
+      this.loggedInUser = user;
+    });
+ }
 
     public logIn() {
-      this.loginService.logIn();
+      this._loginService.logIn();
     }
 
     public logOut() {
-      this.loginService.logOut();
+      this._loginService.logOut();
     }
 
     get username() {
 // push user name to array and bind
-      return this.loginService.getLoggedInUser();
+      return this._loginService.getLoggedInUser();
     }
 }

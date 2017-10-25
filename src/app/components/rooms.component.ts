@@ -15,6 +15,7 @@ export class RoomsComponent implements OnInit {
   public roomId;
 
   constructor(private _activatedRoute: ActivatedRoute) {
+    console.log('loaded');
   }
   public ngOnInit() {
     this._activatedRoute.paramMap.subscribe(route => {
