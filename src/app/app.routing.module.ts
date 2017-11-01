@@ -1,4 +1,4 @@
-import { Routes, RouterModule} from '@angular/router';
+import { Routes, RouterModule, CanActivate} from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { NavComponent} from './navigation.component';
@@ -7,10 +7,15 @@ import { HomeComponent } from './home.component';
 import { AboutComponent } from './about.component';
 import { RoomsComponent } from './rooms.component';
 
+import { LoginGuardService} from './services/login.guard.service';
+import { CanDeactivateService } from './services/can-deactivate.guard.service';
+
  const routes: Routes = [
    {
      path: 'rooms',
-     component: RoomsComponent
+     component: RoomsComponent,
+     canActivate: [ LoginGuardService ],
+     canDeactivate: [ CanDeactivateService ]
    },
   {
     path: 'home',
@@ -34,6 +39,10 @@ export const routedComponents = [ HomeComponent, AboutComponent, RoomsComponent 
   ],
   exports: [
     RouterModule
+  ],
+  providers: [
+    LoginGuardService,
+    CanDeactivateService
   ]
 })
 
