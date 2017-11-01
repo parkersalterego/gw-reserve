@@ -2,6 +2,7 @@ import { Component, ViewChild, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
+import { RoomService } from '../services/room.service';
 import { FormListService } from '../services/form.list.service';
 @Component ({
   selector: 'gw-room-form',
@@ -10,19 +11,16 @@ import { FormListService } from '../services/form.list.service';
 })
 
 export class RoomFormComponent {
-  constructor(private formService: FormListService) {}
+  constructor(private formService: FormListService, private roomService: RoomService) {}
   @ViewChild('roomForm')
   private roomForm: NgForm;
 
   @Input()
   public roomId: string;
 
-  public reasons = ['Business Meeting', 'Cleint Meeting'];
 
-  onSubmit() {
-    this.formService.roomsReserved.push(this.roomForm.value);
-    this.formService.formData = this.roomForm.value;
-  }
+
+  public reasons = ['Business Meeting', 'Cleint Meeting'];
 }
 
 

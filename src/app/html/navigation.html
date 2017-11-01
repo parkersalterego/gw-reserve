@@ -6,7 +6,7 @@
 
 <div class="nav-bar" id="navBar" >
   <div>
-      <div class="nav-list-item display-inline nav-spacer" *ngFor="let listItem of items" [routerLink]="listItem.url">{{listItem.name}}</div>
+      <div class="nav-list-item display-inline nav-spacer" *ngFor="let navigationItem of navigationItems" [routerLink]="navigationItem.url">{{navigationItem.title}}</div>
   </div>
   <gw-login></gw-login>
 </div>

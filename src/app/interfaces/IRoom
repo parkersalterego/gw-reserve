@@ -1,8 +1,0 @@
-import { IReservation } from './IReservation.ts'
-
-export interface Iroom {
-  id?: string;
-  name: string;
-  picture: string;
-  reservations?: Ireservation[];
-}

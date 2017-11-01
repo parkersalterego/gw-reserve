@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
-interface NavigationItems {
-  name: string;
-  url: string;
-}
+import { INavigationItem } from '../interfaces/INavigationItem';
+
+import { RoomService } from '../services/room.service';
+
+import 'rxjs/add/operator/do';
 
 @Component({
   selector: 'gw-nav',
@@ -24,24 +25,43 @@ interface NavigationItems {
   // ]
 
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
 
-  public items: NavigationItems[];
+  public navigationItems: INavigationItem [];
 
-  constructor() {
-    this.items = [
-      {
-        name: 'Home',
-        url: '/home'
-      },
-      {
-        name: 'Rooms',
-        url: '/rooms/:id'
-      },
-      {
-        name: 'Reservations',
-        url: '/list'
-      }
-    ];
-  }
+  constructor(private _roomService: RoomService) {}
+
+  ngOnInit() {
+
+    this._roomService.roomsObservable
+      .do(rooms => {
+        this.navigationItems = [];
+
+        this.navigationItems.push({
+          color: 'blue',
+          title: 'Home',
+          url: 'home'
+        });
+
+        return rooms;
+      })
+      .map(rooms => {
+        return rooms.map(room => {
+          const navigationItem: INavigationItem = {
+            color: 'green',
+            title: room.name,
+            url: 'rooms/' + room.id
+          };
+
+          return navigationItem;
+        });
+      })
+      .subscribe(rooms => {
+
+        this.navigationItems = this.navigationItems.concat(rooms);
+
+        console.log(rooms);
+      });
+    }
 }
+

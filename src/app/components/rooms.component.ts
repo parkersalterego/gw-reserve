@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ICanDeactivate } from '../services/can-deactivate.guard.service';
+import { RoomService } from '../services/room.service';
 
 @Component({
     selector: 'gw-rooms',
@@ -10,17 +11,18 @@ import { ICanDeactivate } from '../services/can-deactivate.guard.service';
 })
 
 export class RoomsComponent implements OnInit {
-  public canThisDeactivate: boolean;
 
-  public roomId;
+  public room;
 
-  constructor(private _activatedRoute: ActivatedRoute) {
+  constructor(private _activatedRoute: ActivatedRoute, private _roomService: RoomService) {
     console.log('loaded');
   }
   public ngOnInit() {
-    this._activatedRoute.paramMap.subscribe(route => {
-      this.roomId = route.get('id');
-    });
+    this._activatedRoute.paramMap.subscribe(route => this._switchRoom(route.get('id')));
+  }
+
+  private _switchRoom(id: string) {
+    this._roomService.getRoomById(id).subscribe(room => { this.room = room; });
   }
 }
 

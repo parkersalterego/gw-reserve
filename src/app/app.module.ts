@@ -18,6 +18,7 @@ import { RoomThreeComponent } from './components/room-three.component';
 import { LoginService } from './services/login.service';
 import { LoginGuardService } from './services/login.guard.service';
 import { FormListService } from './services/form.list.service';
+import { RoomService } from './services/room.service';
 @NgModule({
     imports: [
         BrowserModule,
@@ -37,7 +38,8 @@ import { FormListService } from './services/form.list.service';
     providers: [
         LoginGuardService,
         LoginService,
-        FormListService
+        FormListService,
+        RoomService
       ],
       bootstrap: [
           AppComponent
